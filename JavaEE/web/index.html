@@ -118,7 +118,6 @@
         })
     }
 
-
     $('#btn_update_student').click((e) => {
         e.preventDefault()
 
@@ -139,16 +138,40 @@
             success: (res) => {
                 alert("Student updated...!")
                 fetchStudentData()
-                $('#updateStudentModal').modal('hide')
                 console.log(res)
+                $('#updateStudentModal').modal('hide');
             },
             error: (err) => {
                 alert("Fail to update user...!")
                 console.error(err)
             }
-        })
+        });
 
-    })
+    });
+
+    $('#btn_update_student').click((e) => {
+        e.preventDefault();
+
+        const id = $('#updated_student_id').val();
+        const name = $('#updated_name').val();
+        const email = $('#updated_email').val();
+        const age = $('#updated_age').val();
+
+        $.ajax({
+            url: `http://localhost:8080/JavaEE_Web_exploded/student?id=${id}&studentName=${name}&studentEmail=${email}&studentAge=${age}`,
+            type: "PUT",
+            success: (res) => {
+                alert("Student updated successfully!");
+                fetchStudentData(); // Refresh the table
+                console.log(res);
+                $('#updateStudentModal').modal('hide'); // Hide the modal
+            },
+            error: (err) => {
+                alert("Failed to update student!");
+                console.error("Error details:", err);
+            }
+        });
+    });
 
     $('#btn_save_student').click((e) => {
         e.preventDefault()

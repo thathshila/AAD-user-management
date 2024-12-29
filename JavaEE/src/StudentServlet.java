@@ -136,7 +136,7 @@ public class StudentServlet extends HttpServlet {
                     studentById.setStudentName(studentName);
                     studentById.setStudentEmail(studentEmail);
                     studentById.setStudentAge(studentAge);
-                    System.out.println(studentsList);
+
                     resp.setStatus(HttpServletResponse.SC_OK);
                     resp.getWriter().write("{\"message\": \"Student updated!\"}");
                 }
@@ -147,3 +147,4 @@ public class StudentServlet extends HttpServlet {
         }
     }
 }
+
