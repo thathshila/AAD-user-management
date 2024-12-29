@@ -89,7 +89,6 @@ public class StudentServlet extends HttpServlet {
         resp.setContentType("application/json");
 
         //JSON       JAVA SCRIPT OBJECT NOTATION
-
         StringBuilder studentListStringBuilder = new StringBuilder();
         studentListStringBuilder.append("[");
         for (int i = 0; i < studentsList.size(); i++) {
